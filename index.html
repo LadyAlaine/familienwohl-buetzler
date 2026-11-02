@@ -71,6 +71,10 @@ form{display:grid;gap:18px;max-width:680px}
 @media (max-width:620px){.row{grid-template-columns:1fr}}
 label,legend{font-weight:600;display:block;margin-bottom:6px}
 input,select,textarea{width:100%;font:400 1rem var(--sans);color:var(--text);background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:12px 14px}
+.ac-wrap{position:relative}
+.ac-list{position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:20;list-style:none;margin:0;padding:6px;background:var(--surface);border:1.5px solid var(--line);border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.12);max-height:240px;overflow:auto}
+.ac-list li{padding:8px 12px;border-radius:10px;cursor:pointer}
+.ac-list li[aria-selected="true"],.ac-list li:hover{background:var(--sand);color:var(--red)}
 input:disabled{opacity:.45;cursor:not-allowed}
 input.bad{border-color:#c0182c;background:#fdecee;outline-color:#c0182c}
 .field-msg{margin:.4em 0 0;font-size:.92rem;font-weight:600;color:#c0182c}
@@ -153,6 +157,7 @@ dt{font-weight:600}dd{margin:0}
 .net-price{margin:.1em 0 0;font-size:2rem;font-weight:600;color:var(--red);line-height:1.1}
 .net-price small{font-size:1rem;font-weight:500}
 .net-offers .topics{margin:0 0 22px}
+.net-offers{width:min(1240px,calc(100vw - 48px));margin-left:calc(50% - min(620px,calc(50vw - 24px)))}
 .net-btn{align-self:flex-start;margin-top:auto}
 #p-start .fx{background:var(--surface);border:3px solid var(--red-bg)}
 .offer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px}
@@ -303,37 +308,51 @@ footer a{color:var(--text)}
       <div class="card" style="flex:2 1 380px;background:var(--sand);border:0"><h3>Kostenloses Erstgespräch</h3><p style="margin:0">In einem ersten Gespräch sprechen wir über eure Situation und worum es genau geht, damit ich einschätzen kann, wie ich euch am besten betreuen kann.</p></div>
       <div class="note" style="flex:1 1 260px;margin:0;align-self:stretch;display:flex;align-items:center"><p style="margin:0"><strong class="important">Wichtig:</strong> Der Elterngeldantrag sollte möglichst früh nach der Geburt gestellt werden. Rückwirkend wird nur für die letzten drei Lebensmonate vor Antragstellung gezahlt. <span class="important">Sprich mich am besten schon in der Schwangerschaft an.</span></p></div>
     </div>
-    <h2 style="margin-top:1.4em">Dein Elterngeld-Sicherheitsnetz auf Abruf</h2>
-    <p class="lead" style="font-size:1.15rem">Du füllst den Antrag selbst in deinem Tempo aus. Bei Fragen oder Problemen bekommst du von mir schnelle Hilfe über deinen Lieblings-Messenger, sodass du den Antrag danach weiter ausfüllen kannst. Hierfür biete ich dir folgende Optionen an:</p>
+    <h2 style="margin-top:1.4em">Deine Elterngeld-Absicherung auf Abruf</h2>
+    <p class="lead" style="font-size:1.15rem">Du füllst den Antrag selbst in deinem Tempo aus. Bei Fragen oder Problemen bekommst du von mir schnelle Hilfe über deinen Lieblings-Messenger, sodass du den Antrag danach weiter ausfüllen kannst. Alternativ fülle ich den Antrag auch komplett mit dir aus. Hierfür biete ich dir folgende Optionen an:</p>
     <div class="bm-offers net-offers">
       <div class="card bm-offer">
         <p class="bm-tag">Option 1</p>
-        <h3>Das Flex-Netz</h3>
-        <p class="net-price">29 € <small>/ Monat</small></p>
-        <p class="hint" style="margin-bottom:6px">monatlich kündbar</p>
-        <p>Die flexible Absicherung für den Endspurt – perfekt kurz vor oder nach der Geburt.</p>
+        <h3>Der Quick Guide</h3>
+        <p class="net-price">29 € <small>einmalig</small></p>
+        <p class="hint" style="margin-bottom:6px;color:var(--red);font-weight:600">20 Minuten Beratungszeit</p>
+        <p>Die Absicherung für den Endspurt – perfekt für die letzten offenen Fragen vor oder nach der Geburt.</p>
         <ul class="topics">
           <li><b>Support auf deinem Wunsch-Kanal:</b> Schicke mir Sprachnachrichten oder Screenshots einfach per WhatsApp, Signal, Threema, Instagram-DM oder E-Mail – oder ruf mich an.</li>
           <li><b>Zuverlässig erreichbar:</b> Ich antworte dir innerhalb von 24 Stunden.</li>
           <li><b>Schnelle Hilfe im Wochenbett:</b> Ideal, wenn das Baby schon da ist und der Antrag jetzt zügig und fehlerfrei raus muss.</li>
-          <li><b>Maximale Freiheit:</b> Du kündigst das Abo, sobald du keine Hilfe mehr benötigst.</li>
+          <li><b>Maximale Freiheit:</b> Wenn wir merken, dass du mehr Unterstützung benötigst, können wir auf Option 2 wechseln. Natürlich werden die Kosten vollständig verrechnet.</li>
         </ul>
-        <a class="btn net-btn" href="#termin" data-pick="Sicherheitsnetz: Flex-Netz (29 € / Monat)">Jetzt flexibel starten</a>
+        <a class="btn net-btn" href="#termin" data-pick="Elterngeld: Quick Guide (29 €)">Quick Guide anfragen</a>
       </div>
       <div class="card bm-offer">
         <p class="bm-tag">Option 2</p>
-        <h3>Das All-In-Netz</h3>
+        <h3>Das All-In-Fragen-Paket</h3>
         <p class="net-price">89 € <small>einmalig</small></p>
-        <p class="hint" style="margin-bottom:6px">Festpreis</p>
         <p>Deine Begleitung von der Schwangerschaft bis zum fertigen Elterngeldbescheid.</p>
         <ul class="topics">
           <li><b>Support auf deinem Wunsch-Kanal:</b> Schicke mir Sprachnachrichten oder Screenshots einfach per WhatsApp, Signal, Threema, Instagram-DM oder E-Mail – oder ruf mich an.</li>
           <li><b>Zuverlässig erreichbar:</b> Ich antworte dir innerhalb von 24 Stunden.</li>
           <li><b>Begleitung von Anfang an:</b> Ich bin über deine gesamte Schwangerschaft hinweg für alle deine Fragen da.</li>
           <li><b>Strategische Vorbereitung:</b> Wir schauen uns zusammen deine Situation an und finden heraus, welches Elterngeld- und Elternzeitmodell für euch am besten passt.</li>
-          <li><b>Einmal zahlen, Kopf frei:</b> Kein Abo, keine Folgekosten. Einmal investiert und das Thema für die gesamte Schwangerschaft abgehakt.</li>
+          <li><b>Einmal zahlen, Kopf frei:</b> Ich unterstütze dich bei allen Fragen, die du beim Ausfüllen des Elterngeld-Antrags hast.</li>
         </ul>
-        <a class="btn net-btn" href="#termin" data-pick="Sicherheitsnetz: All-In-Netz (89 € einmalig)">Jetzt rundum absichern</a>
+        <a class="btn net-btn" href="#termin" data-pick="Elterngeld: All-In-Fragen-Paket (89 €)">All-In-Fragen-Paket anfragen</a>
+      </div>
+	     <div class="card bm-offer">
+        <p class="bm-tag">Option 3</p>
+        <h3>Das Rundum-sorglos-Paket</h3>
+        <p class="net-price">179 € <small>einmalig</small></p>
+        <p>Vom Antrag überfordert? Wir füllen zusammen den Antrag aus und klären deine Fragen.</p>
+        <ul class="topics">
+          <li><b>Support auf deinem Wunsch-Kanal:</b> Schicke mir Sprachnachrichten oder Screenshots einfach per WhatsApp, Signal, Threema, Instagram-DM oder E-Mail – oder ruf mich an.</li>
+          <li><b>Zuverlässig erreichbar:</b> Ich antworte dir innerhalb von 24 Stunden.</li>
+          <li><b>Begleitung von Anfang an:</b> Ich bin über deine gesamte Schwangerschaft hinweg für alle deine Fragen da.</li>
+          <li><b>Strategische Vorbereitung:</b> Wir schauen uns zusammen deine Situation an und finden heraus, welches Elterngeld- und Elternzeitmodell für euch am besten passt.</li>
+          <li><b>Einmal zahlen, Kopf frei:</b> Ich unterstütze dich bei allen Fragen, die aufkommen.</li>
+		  <li><b>Ausfüllen des Antrages:</b> Wir schauen welche Dokumente du brauchst, klären die Fragen und füllen zusammen den Elterngeldantrag aus.</li>
+        </ul>
+        <a class="btn net-btn" href="#termin" data-pick="Elterngeld: Rundum-sorglos-Paket (179 €)">Rundum-sorglos-Paket anfragen</a>
       </div>
     </div>
   </div></section>
@@ -552,12 +571,12 @@ footer a{color:var(--text)}
   </div></section>
   <section class="block" style="padding-top:16px"><div class="wrap">
         <article class="card event">
-      <div class="date"><b>29</b><span>Nov 2026</span></div>
+      <div class="date"><b>28</b><span>Nov 2026</span></div>
       <div>
         <h3>Elterngeld und Elternzeit – die Grundlagen</h3>
         <dl><dt>Uhrzeit</dt><dd>9:30 – 11:00 Uhr</dd><dt>Ort</dt><dd>Hebammenpraxis Juno Hebammen<br>Rheinstraße 5–7, 56355 Nastätten</dd><dt>Kosten</dt><dd>15 € pro Person, 25 € für Paare, inklusive Handout</dd></dl>
         <p>Durch die unten genannten Themen kannst du dir schon einen groben Überblick verschaffen, was dich erwartet. Im Anschluss an den Infoteil bleibt noch Zeit, um allgemeine Fragen zu stellen.</p>
-        <a class="btn" href="#termin" data-topic="Infoveranstaltung: Elterngeld und Elternzeit – die Grundlagen (29.11.2026)">Platz anfragen</a>
+        <a class="btn" href="#termin" data-topic="Infoveranstaltung: Elterngeld und Elternzeit – die Grundlagen (28.11.2026)">Platz anfragen</a>
       </div>
     </article>
 
@@ -581,7 +600,7 @@ footer a{color:var(--text)}
 
     <div class="note" style="margin-top:24px"><p style="margin:0"><strong class="important">Hinweis:</strong> <span class="important">Die Teilnahme ist nur nach Anmeldung möglich.</span></p></div>
     <figure style="margin:28px auto 0;max-width:480px;text-align:center">
-      <a href="flyer.pdf" target="_blank" rel="noopener"><img src="flyer.jpg" alt="Flyer zur Infoveranstaltung Elterngeld am 29.11.2026, 9:30 bis 11:00 Uhr, Juno Hebammen, Rheinstraße 5–7, Nastätten" style="display:block;width:100%;height:auto;border-radius:18px;border:3px solid var(--red-bg)"></a>
+      <a href="flyer.pdf" target="_blank" rel="noopener"><img src="flyer.jpg" alt="Flyer zur Infoveranstaltung Elterngeld am 28.11.2026, 9:30 bis 11:00 Uhr, Juno Hebammen, Rheinstraße 5–7, Nastätten" style="display:block;width:100%;height:auto;border-radius:18px;border:3px solid var(--red-bg)"></a>
       <figcaption class="hint" style="margin-top:8px"><a href="flyer.pdf" target="_blank" rel="noopener">Flyer als PDF öffnen</a></figcaption>
     </figure>
   </div></section>
@@ -635,7 +654,7 @@ footer a{color:var(--text)}
           <label><input type="radio" name="mode" value="Video"> Video</label>
         </div></fieldset>
       <div class="row" id="ortRow">
-        <div><label for="ort">Ort <span class="req" id="ortReq">*</span></label><input id="ort" name="ort" list="orteListe" autocomplete="address-level2" aria-describedby="ortMsg" placeholder="z. B. Nastätten"><datalist id="orteListe"><option value="Algenroth"><option value="Auel"><option value="Berg"><option value="Bettendorf"><option value="Bogel"><option value="Buch"><option value="Dachsenhausen"><option value="Dessighofen"><option value="Diethardt"><option value="Ehr"><option value="Eschbach"><option value="Geisig"><option value="Gemmerich"><option value="Hainau"><option value="Heide"><option value="Himmighofen"><option value="Holzhausen an der Haide"><option value="Hunzel"><option value="Kasdorf"><option value="Kehlbach"><option value="Lautert"><option value="Lierschied"><option value="Lipporn"><option value="Lollschied"><option value="Marienfels"><option value="Martenroth"><option value="Miehlen"><option value="Nastätten"><option value="Niederbachheim"><option value="Niedermeilingen"><option value="Niedertiefenbach"><option value="Niederwallmenach"><option value="Nochern"><option value="Oberbachheim"><option value="Obertiefenbach"><option value="Oberwallmenach"><option value="Oelsberg"><option value="Patersberg"><option value="Pohl"><option value="Reichenberg"><option value="Reitzenhain"><option value="Rettershain"><option value="Rettert"><option value="Ruppertshofen"><option value="Sankt Goarshausen"><option value="Strüth"><option value="Weidenbach"><option value="Weyer"><option value="Winterwerb"><option value="Zorn"><option value="Singhofen"><option value="Weisel"><option value="Bornich"><option value="Wollmerschied"><option value="Welterod"></datalist>
+        <div><label for="ort">Ort <span class="req" id="ortReq">*</span></label><div class="ac-wrap"><input id="ort" name="ort" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="ortSug" aria-describedby="ortMsg" placeholder="z. B. Nastätten"><ul id="ortSug" class="ac-list" role="listbox" hidden></ul></div>
           <p id="ortMsg" class="field-msg" role="alert" hidden></p>
           <p id="ortOff" class="hint" style="margin:.4em 0 0" hidden></p></div>
       </div>
@@ -791,17 +810,12 @@ footer a{color:var(--text)}
 <div class="page" id="p-impressum">
   <section class="hero" style="padding-bottom:32px"><div class="wrap"><h1>Impressum</h1></div></section>
   <section class="block"><div class="wrap">
-    <div class="note"><p style="margin:0"><strong class="important">Bitte vervollständigen:</strong> Alle Angaben in eckigen Klammern sind Platzhalter und müssen vor der Veröffentlichung durch die echten Daten ersetzt werden.</p></div>
     <h2>Angaben gemäß § 5 DDG</h2>
-    <p>Britta Bützler<br>Familienwohl<br>[Straße und Hausnummer]<br>[PLZ Ort]</p>
+    <p>Britta Bützler<br>Familienwohl<br>Untere-Trift Straße 9<br>56357 Bogel</p>
     <h3>Kontakt</h3>
-    <p>Telefon: [Telefonnummer]<br>E-Mail: [E-Mail-Adresse]</p>
-    <h3>Umsatzsteuer-ID</h3>
-    <p>[Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG, falls vorhanden]</p>
-    <h3>Berufsbezeichnung und Aufsicht</h3>
-    <p>[Berufsbezeichnung, zuständige Kammer oder Aufsichtsbehörde, falls zutreffend]</p>
+    <p>Telefon: 0177/2331569<br>E-Mail: brittabuetzler.familienwohl@gmail.com</p>
     <h3>Verantwortlich für den Inhalt</h3>
-    <p>Britta Bützler, [Anschrift wie oben]</p>
+    <p>Britta Bützler, Untere-Trift Straße 9, 56357 Bogel</p>
     <h3>Haftung für Inhalte</h3>
     <p>Die Inhalte dieser Seiten wurden mit Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität kann jedoch keine Gewähr übernommen werden. Die Informationen ersetzen keine verbindliche Auskunft der zuständigen Elterngeldstelle.</p>
     <h3>Haftung für Links</h3>
@@ -818,7 +832,7 @@ footer a{color:var(--text)}
     <div class="note"><p style="margin:0"><strong class="important">Bitte vervollständigen und prüfen:</strong> Alle Angaben in eckigen Klammern sind Platzhalter. Dieser Text ist eine Vorlage für diese Webseite und ersetzt keine Rechtsberatung. Lass ihn vor der Veröffentlichung am besten fachlich prüfen.</p></div>
 
     <h2>1. Verantwortliche</h2>
-    <p>Britta Bützler, Familienwohl<br>[Straße und Hausnummer], [PLZ Ort]<br>Telefon: [Telefonnummer]<br>E-Mail: [E-Mail-Adresse]</p>
+    <p>Britta Bützler, Familienwohl<br>Untere-Trift Straße 9, 56357 Bogel<br>Telefon: 0177/2331569<br>E-Mail: brittabuetzler.familienwohl@gmail.com</p>
 
     <h2>2. Allgemeines zur Datenverarbeitung</h2>
     <p>Ich verarbeite personenbezogene Daten nur, soweit das zum Betrieb dieser Webseite und zur Bearbeitung deiner Anfragen nötig ist. Diese Webseite verwendet keine Cookies und keine Analyse- oder Tracking-Dienste.</p>
@@ -877,12 +891,12 @@ footer a{color:var(--text)}
     var sel=document.getElementById("topic");
     if(!window.__allOpts){window.__allOpts=sel.innerHTML;}
     var sets={
-      start:["Kostenloses Erstgespräch","Sicherheitsnetz: Flex-Netz (29 € / Monat)","Sicherheitsnetz: All-In-Netz (89 € einmalig)","Babymassage","Teilkörpermassage","Ganzkörpermassage","Paket – Babymassage Einzeltermin + Teilkörpermassage","Sonstiges"],
+      start:["Kostenloses Erstgespräch","Elterngeld: Quick Guide (29 €)","Elterngeld: All-In-Fragen-Paket (89 €)","Elterngeld: Rundum-sorglos-Paket (179 €)","Babymassage","Teilkörpermassage","Ganzkörpermassage","Paket – Babymassage Einzeltermin + Teilkörpermassage","Sonstiges"],
       wellness:["Teilkörpermassage","Ganzkörpermassage"],
       babymassage:["Babymassage – Einzeltermin Grundgriffe","Babymassage – Einzeltermin Arme (inkl. Grundgriffe)","Babymassage – Einzeltermin Beine (inkl. Grundgriffe)","Babymassage – 3er Block"],
       pakete:["Paket – Babymassage Einzeltermin + Teilkörpermassage"],
       infos:["Infoveranstaltung Elterngeld"],
-      elterngeld:["Kostenloses Erstgespräch","Sicherheitsnetz: Flex-Netz (29 € / Monat)","Sicherheitsnetz: All-In-Netz (89 € einmalig)","Sonstiges"]
+      elterngeld:["Kostenloses Erstgespräch","Elterngeld: Quick Guide (29 €)","Elterngeld: All-In-Fragen-Paket (89 €)","Elterngeld: Rundum-sorglos-Paket (179 €)","Sonstiges"]
     };
     var setOf=function(p){return sets[p]?p:"all";};
     if(lastPlaced===""||setOf(lastPlaced)!==setOf(id)){
@@ -916,7 +930,7 @@ footer a{color:var(--text)}
     var t=document.getElementById("topic").value;
     var only=(lastPlaced==="wellness"||lastPlaced==="babymassage"||lastPlaced==="pakete"||t==="Babymassage"||t==="Wellnessmassage"||t==="Teilkörpermassage"||t==="Ganzkörpermassage"||t.indexOf("Paket")===0);
     document.getElementById("modeSet").style.display=(only||lastPlaced==="infos")?"none":"";
-    if(lastPlaced==="start"){var eg=(t==="Infoveranstaltung Elterngeld"||t==="Kostenloses Erstgespräch"||t.indexOf("Sicherheitsnetz")===0);document.getElementById("landWrap").style.display=eg?"":"none";if(!eg){document.getElementById("land").value="";}}
+    if(lastPlaced==="start"){var eg=(t==="Infoveranstaltung Elterngeld"||t==="Kostenloses Erstgespräch"||t.indexOf("Elterngeld:")===0);document.getElementById("landWrap").style.display=eg?"":"none";if(!eg){document.getElementById("land").value="";}}
     if(only){document.querySelector('input[name="mode"][value="vor Ort"]').checked=true;}
     updOrt();
   }
@@ -952,6 +966,35 @@ footer a{color:var(--text)}
   document.getElementById("ort").addEventListener("change",function(){checkOrt(false);});
   document.getElementById("ort").addEventListener("blur",function(){checkOrt(false);});
   document.querySelectorAll('input[name="mode"]').forEach(function(r){r.addEventListener("change",updOrt);});
+  // Ortsvorschläge beim Tippen
+  (function(){
+    var f=document.getElementById("ort"),l=document.getElementById("ortSug"),idx=-1,items=[];
+    function close(){l.hidden=true;f.setAttribute("aria-expanded","false");idx=-1;}
+    function render(){
+      var q=normOrt(f.value);
+      if(!q||f.disabled){close();return;}
+      var starts=[],cont=[];
+      ORTE.forEach(function(o,i){var n=ORTE_N[i];if(n.indexOf(q)===0)starts.push(o);else if(n.indexOf(q)>0)cont.push(o);});
+      items=starts.concat(cont).slice(0,8);
+      if(!items.length||(items.length===1&&normOrt(items[0])===q)){close();return;}
+      l.innerHTML=items.map(function(o,i){return '<li role="option" id="ortOpt'+i+'">'+o+'</li>';}).join("");
+      idx=-1;l.hidden=false;f.setAttribute("aria-expanded","true");
+    }
+    function pick(i){f.value=items[i];close();checkOrt(false);}
+    function mark(){Array.prototype.forEach.call(l.children,function(li,i){li.setAttribute("aria-selected",i===idx?"true":"false");if(i===idx)li.scrollIntoView({block:"nearest"});});}
+    f.addEventListener("input",render);
+    f.addEventListener("focus",render);
+    f.addEventListener("keydown",function(e){
+      if(l.hidden)return;
+      if(e.key==="ArrowDown"){e.preventDefault();idx=Math.min(idx+1,items.length-1);mark();}
+      else if(e.key==="ArrowUp"){e.preventDefault();idx=Math.max(idx-1,0);mark();}
+      else if(e.key==="Enter"&&idx>=0){e.preventDefault();pick(idx);}
+      else if(e.key==="Escape"){close();}
+    });
+    l.addEventListener("mousedown",function(e){var li=e.target.closest("li");if(!li)return;e.preventDefault();pick(Array.prototype.indexOf.call(l.children,li));});
+    f.addEventListener("blur",function(){setTimeout(close,100);});
+  })();
+
   document.getElementById("topic").addEventListener("change",updMode);
   var nav=document.getElementById("nav"), btn=document.getElementById("menuBtn");
   document.getElementById("yr").textContent=new Date().getFullYear();
@@ -981,7 +1024,7 @@ footer a{color:var(--text)}
     window.__scroll=true;
     if(location.hash==="#"+t) show(); else location.hash=t;
   });
-  // Sicherheitsnetz-Buttons wählen die passende Option im Formular
+  // Options-Buttons wählen die passende Option im Formular
   document.querySelectorAll("[data-pick]").forEach(function(a){
     a.addEventListener("click",function(){ window.__pick=a.dataset.pick; });
   });
